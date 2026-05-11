@@ -29,10 +29,12 @@ jobs:
       - name: Accept licenses
         run: yes | sdkmanager --licenses || true
 
-      - name: Install dependencies
-        run: npm install
+      - name: Clean and install dependencies
+        run: |
+          rm -rf node_modules package-lock.json android ios
+          npm install
 
-      - name: Prebuild Android
+      - name: Prebuild Android (clean)
         run: npx expo prebuild --platform android --clean
 
       - name: Make gradlew executable
