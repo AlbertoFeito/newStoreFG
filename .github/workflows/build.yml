@@ -29,12 +29,20 @@ jobs:
       - name: Accept licenses
         run: yes | sdkmanager --licenses || true
 
-      - name: Clean and install dependencies
+      - name: Nuclear clean
         run: |
-          rm -rf node_modules package-lock.json android ios
-          npm install
+          rm -rf node_modules package-lock.json android ios .expo
+          npm cache clean --force
 
-      - name: Prebuild Android (clean)
+      - name: Install dependencies
+        run: npm install
+
+      - name: Verify Expo modules version
+        run: |
+          cat node_modules/expo-modules-core/package.json | grep version
+          cat node_modules/expo-modules-autolinking/package.json | grep version
+
+      - name: Prebuild Android
         run: npx expo prebuild --platform android --clean
 
       - name: Make gradlew executable
