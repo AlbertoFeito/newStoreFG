@@ -34,6 +34,9 @@ jobs:
           rm -rf node_modules package-lock.json android ios .expo
           npm install
 
+      - name: Fix Expo modules
+        run: npx expo install --fix
+
       - name: Prebuild Android
         run: npx expo prebuild --platform android --clean
 
