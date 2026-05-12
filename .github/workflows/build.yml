@@ -29,18 +29,10 @@ jobs:
       - name: Accept licenses
         run: yes | sdkmanager --licenses || true
 
-      - name: Nuclear clean
+      - name: Clean install
         run: |
           rm -rf node_modules package-lock.json android ios .expo
-          npm cache clean --force
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Verify Expo modules version
-        run: |
-          cat node_modules/expo-modules-core/package.json | grep version
-          cat node_modules/expo-modules-autolinking/package.json | grep version
+          npm install
 
       - name: Prebuild Android
         run: npx expo prebuild --platform android --clean
@@ -58,3 +50,4 @@ jobs:
         with:
           name: app-release
           path: android/app/build/outputs/apk/release/app-release.apk
+          
