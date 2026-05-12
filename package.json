@@ -47,5 +47,11 @@
     "@types/jest": "^29.5.12",
     "@types/uuid": "^9.0.8"
   },
+  "overrides": {
+    "expo-modules-core": "~1.12.0",
+    "expo-modules-autolinking": "~1.12.0",
+    "expo-font": "~12.0.0",
+    "expo-asset": "~10.0.0"
+  },
   "private": true
 }
