@@ -44,6 +44,12 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "7b67c921-7df0-4839-9b2f-cf4cbe5a6182"
+      }
+    },
+    "owner": "albertofeito10"
   }
 }
